@@ -4,7 +4,7 @@ module Customer
     resource :customer_data do
       desc "List all Customers"
 
-      get do
+      get '' do
         ::Customer.all
       end
 
