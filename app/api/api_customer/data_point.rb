@@ -1,5 +1,5 @@
-module Customer
-  class Data < Grape::API
+module ApiCustomer
+  class DataPoint < Grape::API
 
     resource :customer_data do
       desc "List all Customers"
