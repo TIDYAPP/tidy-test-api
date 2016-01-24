@@ -8,6 +8,59 @@ module ApiCustomer
         ::Customer.all
       end
 
+      desc "create a new employee"
+      ## This takes care of parameter validation
+      params do
+
+        requires :name, type: String
+        requires :email, type: String
+        requires :phone, type: String
+        requires :address, type: String
+        requires :city, type: String
+        requires :state, type: String
+        requires :zipcode, type: String
+        requires :address, type:String
+
+      end
+      ## This takes care of creating employee
+      post do
+        Customer.create!({
+          name:params[:name],
+          email:params[:email],
+          phone:params[:phone],
+          address:params[:address],
+          city:params[:city],
+          state:params[:state],
+          zipcode:params[:zipcode]
+      })
+      end
+
+     desc "delete an employee"
+     params do
+       requires :id, type: String
+     end
+     delete ':id' do
+       Customer.find(params[:id]).destroy!
+     end
+
+
+    desc "update an employee address"
+    params do
+      requires :id, type: String
+      requires :address, type:String
+    end
+    put ':id' do
+      Customer.find(params[:id]).update({
+          name:params[:name],
+          email:params[:email],
+          phone:params[:phone],
+          address:params[:address],
+          city:params[:city],
+          state:params[:state],
+          zipcode:params[:zipcode]
+      })
+    end
+
     end
   end
 end

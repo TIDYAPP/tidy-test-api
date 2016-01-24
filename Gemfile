@@ -5,6 +5,8 @@ gem 'grape'
 gem 'devise'
 gem 'grape-swagger'
 gem 'grape-swagger-ui'
+#gem 'grape-swagger-rails'
+gem 'rack-cors', :require => 'rack/cors'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
