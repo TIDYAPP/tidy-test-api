@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
 
+gem 'grape'
+gem 'devise'
+gem 'grape-swagger'
+gem 'grape-swagger-ui'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
@@ -35,6 +40,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :development do
