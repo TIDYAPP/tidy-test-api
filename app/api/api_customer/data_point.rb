@@ -2,13 +2,33 @@ module ApiCustomer
   class DataPoint < Grape::API
 
     resource :customer_data do
-      desc "List all Customers"
+      desc "List all Customers",
+      notes: <<-NOTE
+      Example Request
+      --------
+          http GET http://[api-url]]/api/v1/customer.json
+      NOTE
 
       get '' do
         ::Customer.all
       end
 
-      desc "create a new employee"
+      desc "create a Customer",
+      notes: <<-NOTE
+      Example Request
+      --------
+          {
+          "customer":  {
+            "name": "Joe Doe",
+            "email": "joedoe@email.com",
+            "phone": "555-555-5555",
+            "address": "123 main street",
+            "city": "RSM",
+            "state": "CA",
+            "zipcode": "99999",
+          }}
+
+      NOTE
       ## This takes care of parameter validation
       params do
 
@@ -35,7 +55,13 @@ module ApiCustomer
       })
       end
 
-     desc "delete an employee"
+     desc "delete a Customer",
+     notes: <<-NOTE
+
+       Example Request
+       --------
+           http DELETE http://[api-url]]/api/v1/customer.json/15
+     NOTE
      params do
        requires :id, type: String
      end
@@ -44,7 +70,22 @@ module ApiCustomer
      end
 
 
-    desc "update an employee address"
+    desc "update an Customer",
+    notes: <<-NOTE
+      Example Request
+      --------
+          {
+          "customer":  {
+            "name": "Joe Doe",
+            "email": "joedoe@email.com",
+            "phone": "555-555-5555",
+            "address": "123 main street",
+            "city": "RSM",
+            "state": "CA",
+            "zipcode": "99999",
+          }}
+
+      NOTE
     params do
       requires :id, type: String
       requires :address, type:String
