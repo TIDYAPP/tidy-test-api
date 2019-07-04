@@ -1,0 +1,1 @@
+curl -X POST -d '{"name":"test","email":"123@123.com","phone":"1234","address":"delhi","city":"123address","state":"ca","zipcode":"123"}' -H "Content-Type: application/json" http://tidy-api-test.herokuapp.com/api/v1/customer_data.json
